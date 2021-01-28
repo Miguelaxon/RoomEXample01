@@ -39,9 +39,12 @@ class FirstFragment : Fragment() {
             ,2,false)
         val task2 = Task(2,"Titulo 2","Descripcion 2","28/01/2021"
             ,1,false)
+        val task3 = Task(3,"Titulo 3","Descripcion 3","26/01/2021"
+            ,1,true)
 
         viewModel.insertTask(task)
         viewModel.insertTask(task2)
+        viewModel.insertTask(task3)
 
         viewModel.allTask.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             adapter.update(it)

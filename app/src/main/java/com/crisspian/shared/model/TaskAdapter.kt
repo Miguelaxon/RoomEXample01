@@ -16,6 +16,7 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     class TaskViewHolder(private val binding: TaskItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(task: Task) {
             binding.cbEstadoTarea.isChecked = task.state
+            binding.cbEstadoTarea.isEnabled = false
             binding.tvTitulo.text = task.title
             binding.tvDescripcion.text = task.taskDescription
             binding.tvFecha.text = task.date

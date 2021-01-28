@@ -23,4 +23,8 @@ class TaskViewModel(appication: Application): AndroidViewModel(appication) {
     fun deleteAllTask() = viewModelScope.launch {
         repository.deleteAllTask()
     }
+
+    /*fun selectTaskState(task: Task) = viewModelScope.launch {
+        repository.ge
+    }*/
 }

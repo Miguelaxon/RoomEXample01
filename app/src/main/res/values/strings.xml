@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="cb_estado_tarea">Estado Tarea</string>
+    <string name="titulo_de_la_tarea">Tìtulo de la Tarea</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="fecha">Fecha</string>
+    <string name="prioridad">Prioridad</string>
+    <string name="estado_tarea">Estado Tarea</string>
+    <string name="guardar">Guardar</string>
 </resources>

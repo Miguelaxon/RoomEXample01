@@ -24,6 +24,9 @@ interface TaskDao {
     @Query("SELECT * FROM task_table WHERE id = :mId")
     fun getTaskByID(mId: Int): LiveData<Task>
 
+    @Query("SELECT * FROM task_table WHERE state = :mState")
+    fun getTaskByState(mState: Boolean): LiveData<Task>
+
     @Query("SELECT * FROM task_table")
     fun getAllTask(): LiveData<List<Task>>
 
