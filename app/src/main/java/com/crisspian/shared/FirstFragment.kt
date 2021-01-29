@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.crisspian.shared.databinding.FragmentFirstBinding
-import com.crisspian.shared.model.Task
 import com.crisspian.shared.model.TaskAdapter
 import com.crisspian.shared.model.TaskViewModel
 
@@ -35,21 +36,22 @@ class FirstFragment : Fragment() {
         binding.rvTask.adapter = adapter
         binding.rvTask.layoutManager = LinearLayoutManager(context)
 
-        val task = Task(1,"Titulo 1","Descripcion 1","27/01/2021"
-            ,2,false)
-        val task2 = Task(2,"Titulo 2","Descripcion 2","28/01/2021"
-            ,1,false)
-        val task3 = Task(3,"Titulo 3","Descripcion 3","26/01/2021"
-            ,1,true)
-
-        viewModel.insertTask(task)
-        viewModel.insertTask(task2)
-        viewModel.insertTask(task3)
-
         viewModel.allTask.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            adapter.update(it)
-            /*println(it)
-            Log.d("lista", it.toString())*/
+            it?.let {
+                adapter.update(it)
+            }
+
+        })
+
+        binding.fab.setOnClickListener{
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        adapter.selectedItem().observe(viewLifecycleOwner, Observer {
+            it?.let {
+                viewModel.selected(it)
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            }
         })
     }
 }
